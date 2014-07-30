@@ -45,14 +45,22 @@ CSV.foreach("data/amazon_small.txt", {:col_sep => "\t"}) do |row|
 end
 
 path1 = BreathFirstSearch.new(graph, @start_node).shortest_path_to(@end_node)
-path2 = BreathFirstSearch.new(graph, @start_node2).shortest_path_to(@end_node2)
-path3 = BreathFirstSearch.new(graph, @start_node3).shortest_path_to(@end_node3)
-path4 = BreathFirstSearch.new(graph, @start_node4).shortest_path_to(@end_node4)
-
-CSV.open("result.csv", "w") do |csv|
+CSV.open("result.csv", "ab") do |csv|
   csv << [@start_node.name, @end_node.name, path1.size]
+end
+
+path2 = BreathFirstSearch.new(graph, @start_node2).shortest_path_to(@end_node2)
+CSV.open("result.csv", "ab") do |csv|
   csv << [@start_node2.name, @end_node2.name, path2.size]
+end
+
+path3 = BreathFirstSearch.new(graph, @start_node3).shortest_path_to(@end_node3)
+CSV.open("result.csv", "ab") do |csv|
   csv << [@start_node3.name, @end_node3.name, path3.size]
+end
+
+path4 = BreathFirstSearch.new(graph, @start_node4).shortest_path_to(@end_node4)
+CSV.open("result.csv", "ab") do |csv|
   csv << [@start_node4.name, @end_node4.name, path4.size]
 end
 
