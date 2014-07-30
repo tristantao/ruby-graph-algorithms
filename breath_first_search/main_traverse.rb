@@ -11,6 +11,16 @@ graph = Graph.new
 START_NODE = '1'
 END_NODE = '155'
 
+START_NODE_2 = '1'
+END_NODE_2 = '1234'
+
+START_NODE_3 = '2222'
+END_NODE_3 = '22222'
+
+START_NODE_4 = '0'
+END_NODE_4 = '403392'
+
+
 CSV.foreach("data/amazon0601.txt", {:col_sep => "\t"}) do |row|
     e_1 = vertex_hash.fetch(row[0], Node.new(row[0]))
     e_2 = vertex_hash.fetch(row[1], Node.new(row[1]))
